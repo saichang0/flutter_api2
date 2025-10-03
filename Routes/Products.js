@@ -1,13 +1,15 @@
 const express = require("express")
 const router = express.Router()
+const { read, listData, create, update, delete: deleteProduct } = require("../controller/products_controller")
 
-router.get('/product',(req,res) => {
-    res.send("hellow product !!!")
-})
+router.get('/list_product', listData)
 
-router.get('/product/:id',(req,res) => {
-    const id = this.param.id
-    res.send(`hellow product id ${id} !!!`)
-})
+router.get('/read_product/:id',read)
+
+router.post('/create_product',create)
+
+router.put('/update_product/:id',update)
+
+router.delete('/delete_product/:id', deleteProduct)
 
 module.exports = router
